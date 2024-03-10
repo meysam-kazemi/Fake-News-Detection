@@ -11,10 +11,20 @@ class detection:
 
         self.classes = {1.:"Fake", 0.:"Real"}
 
-    def print_predicted(self,text, predicted):
+    def print_predicted(self,texts, predicted):
         for i, p in enumerate(predicted):
-            print(f'{i+1}-{text[:30]} : {self.classes[p]}')
-            
+            try:
+                t = texts[i][:30]
+            except IndexError:
+                t = texts[i]
+
+            if p:
+                color = "\033[32;01m"
+            else:
+                color = "\033[31;01m"
+
+            print(f'{i+1}-{t:^30}... : {color}{self.classes[p]}\033[00m')
+
         
     def detect_one_text(self,text, with_title, verbose=True):
         text = [text]
