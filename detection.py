@@ -14,7 +14,5 @@ class detection:
         with open('model.pkl', 'rb') as f:
             self.model = pickle.load(f)
         print('\033[33mModel Loaded!')
-        with open("Vectorizer.pkl","rb") as f:
-            self.vect = pickle.load(f)
-        print('\033[33mVectorizer Loaded!\033[00m')
         
+    def 
