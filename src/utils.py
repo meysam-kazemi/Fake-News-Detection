@@ -1,8 +1,10 @@
 import pickle
 
+from .config import VECTORIZER_PATH
+
 
 def load_vectorizer():
-    with open("Vectorizer.pkl", "rb") as f:
+    with open(VECTORIZER_PATH, "rb") as f:
         vect = pickle.load(f)
     return vect
 
