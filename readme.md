@@ -13,13 +13,21 @@ predict whether a given piece of text (optionally with its title) is fake news.
 
 ## Project Structure
 
-| File | Description |
-| --- | --- |
-| `detection.py` | Main `detection` class that loads the model and runs predictions. |
-| `utils.py` | Helper functions to load the vectorizer and merge title with text. |
-| `model.pkl` | Pre-trained classification model. |
-| `Vectorizer.pkl` | Pre-trained TF-IDF vectorizer. |
-| `Fake News Detection.ipynb` | Notebook used for data exploration and model training. |
+```
+Fake-News-Detection/
+├── main.py                       # Entry point / demo runner
+├── requirements.txt              # Python dependencies
+├── src/                          # Source package
+│   ├── __init__.py
+│   ├── config.py                 # Centralized paths and constants
+│   ├── detection.py              # `detection` class (loads model, predicts)
+│   └── utils.py                  # Vectorizer loading and text helpers
+├── models/                       # Serialized artifacts
+│   ├── model.pkl                 # Pre-trained classification model
+│   └── Vectorizer.pkl            # Pre-trained TF-IDF vectorizer
+└── notebooks/                    # Exploration and training notebooks
+    └── Fake News Detection.ipynb
+```
 
 ## Installation
 
@@ -34,13 +42,13 @@ pip install -r requirements.txt
 Run the built-in demo:
 
 ```bash
-python detection.py
+python main.py
 ```
 
 Or use the `detection` class in your own code:
 
 ```python
-from detection import detection
+from src.detection import detection
 
 det = detection()
 
